@@ -9,6 +9,9 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserComponent } from './admin/user/user.component';
 import { EmailComponent } from './admin/email/email.component';
+import { HomeComponent } from './components/home/home.component';
+import { NewsComponent } from './components/news/news.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { EmailComponent } from './admin/email/email.component';
     AdminComponent,
     NotFoundComponent,
     UserComponent,
-    EmailComponent
+    EmailComponent,
+    HomeComponent,
+    NewsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
