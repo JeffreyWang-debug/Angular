@@ -1,3 +1,115 @@
 
 <p>home works!</p>
 <app-header></app-header>
+
+<img src="assets/image/pig.jpg" alt="pig"/>
+
+<img [src]="picture" alt="baidu"/>
+
+
+<h2>循环数据 显示数据的索引（key)</h2>
+<div class="green">
+    <ul>
+        <li *ngFor="let item of list; let key = index">
+            {{key}}-----{{item.title}}
+        </li>
+    </ul>
+</div>
+
+<h2>条件判断 *ngIf</h2>
+<div *ngIf="flag">
+    <img src="assets/image/pig.jpg" alt="pig"/>
+</div>
+<div *ngIf="!flag">
+    <img src="assets/image/baby.jpg" alt="baby"/>
+</div>
+
+<h2>索引为偶数显示pink色</h2>
+<div class="green">
+    <ul>
+        <li *ngFor="let item of list; let key = index">
+            <span *ngIf="key%2==0" class="pink">{{key}}-----{{item.title}}</span>
+            <span *ngIf="key%2!=0" class="yellow">{{key}}-----{{item.title}}</span>
+        </li>
+    </ul>
+</div>
+
+<h2>ngswich</h2>
+<div class="red">
+    <span [ngSwitch]="score">
+    <p *ngSwitchCase="1">
+    你的了50分
+    </p>
+    <p *ngSwitchCase="2">
+        你的了60分
+    </p>
+    <p *ngSwitchCase="3">
+    
+        你的了70分
+    </p>
+    <p *ngSwitchCase="4">
+    
+        你的了80分
+    </p>
+    <p *ngSwitchDefault>
+    
+        你的了0分
+    </p>
+    </span>
+</div>
+
+<h2>属性：[ngClass],[[ngStyle]</h2>
+<div [ngClass]="{'red': true,'green': false}">
+    ngClass演示
+</div>
+<div [ngClass]="{'red': flag,'green': !flag}">
+    ngClass演示
+</div>
+
+<strong>把第一条数据变红</strong>
+<div class="green">
+    <ul>
+        <li *ngFor="let item of list; let key = index" [ngClass]="{'red': key==4, 'pink': key==2,'yellow': key==3}">
+            {{key}}-----{{item.title}}
+        </li>
+    </ul>
+</div>
+
+<p style="color: blue;">我是一个p标签</p>
+
+<p [ngStyle]="{'color': 'red'}">我是一个p标签</p>
+
+<p [ngStyle]="{'color': attr}">我是一个p标签</p>
+
+
+<h2>管道(pipe)是用来对输入的数据进行处理，如大小写转换、数值和日期格式化等。 </h2>
+<p>{{today | date:'yyyy-MM-dd HH:mm:ss' }}</p> 
+
+<p>显示数据：{{title}}</p>
+<h2>事件</h2>
+<button (click)="run()">调用事件    </button>
+<h2>获取参数的事件</h2>
+<button (click)="getData()">调用事件获取参数</button>
+<h2>改变参数的事件</h2>
+<button (click)="setData()">调用事件改变参数</button>
+<h2>获取事件对象</h2>
+<button (click)="runEvent($event)">获取事件对象</button>
+
+
+
+
+<h2>表单事件和事件对象</h2>
+<!-- <input type="text" name="" id="" (keydown)="keyDown()"> -->
+<input type="text" name="" id="" (keydown)="keyDown($event)">
+<input type="text" name="" id="" (keyup)="keyUp($event)">
+
+
+
+
+<h2>双向数据绑定--MVVM（model、view、view、model) 只是针对表单</h2>
+<input type="text" name="" id="" [(ngModel)]="keywords">
+
+<p>{{keywords}}</p>
+
+<button (click)="change()">改变keyword值</button>
+<button (click)="getkeywords()">获取keyword值</button>

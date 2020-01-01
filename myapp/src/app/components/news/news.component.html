@@ -25,6 +25,7 @@ age:{{userinfo.age}}
 <!-- //解析HTML -->
 <span [innerHTML]='content'></span>
 </div>
+居住地址：{{address}}
 
 <h1>Angulal模板中数组输出</h1>
 
@@ -66,7 +67,7 @@ age:{{userinfo.age}}
         <li *ngFor="let item of cars">
             {{item.cate}}
             <ol>
-                <li *ngFor="let details of item.list">
+                <li *ngFor="let details of item.list ">
                     {{details.title}}******{{details.price}}
                 </li>
             </ol>
