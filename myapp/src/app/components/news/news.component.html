@@ -1,2 +1,75 @@
-<p>{{news}}</p>
+<h1>Angulal模板中绑定数据</h1>
+<p>{{title}}</p>
+新闻作者：{{username}}
+<h6>{{msg}}</h6>
+<p>{{student1}}</p>
 <app-header></app-header>
+
+UserInfo:{{userinfo.user}}
+age:{{userinfo.age}}
+
+<h1>Angulal模板中绑定属性</h1>
+<div title="我是div">
+    鼠标停留
+</div>
+<div [title]="student1">
+    Jeffrey
+</div>
+
+<h1>Angulal模板中html模板</h1>
+
+<div>
+    {{content}}
+</div>
+<div  class="con">
+<!-- //解析HTML -->
+<span [innerHTML]='content'></span>
+</div>
+
+<h1>Angulal模板中数组输出</h1>
+
+<div class="green">
+<ol>
+    <li *ngFor="let item of arr">
+        {{item}}
+    </li>
+</ol>
+</div>
+<div class="con">
+    <ol>
+        <li *ngFor="let item of arr1">
+            {{item}}
+        </li>
+    </ol>
+</div>
+<div class="green">
+    <ol>
+        <li *ngFor="let item of arr2">
+            {{item}}
+        </li>
+    </ol>
+</div>
+
+<h2>循环获取对象属性 </h2>
+<div class="con">
+    <ol>
+        <li *ngFor="let item of list">
+            {{item.name}}******{{item.age}}
+        </li>
+    </ol>
+</div>
+
+
+<h2>循环获取复杂对象属性 </h2>
+<div class="green">
+    <ol>
+        <li *ngFor="let item of cars">
+            {{item.cate}}
+            <ol>
+                <li *ngFor="let details of item.list">
+                    {{details.title}}******{{details.price}}
+                </li>
+            </ol>
+        </li>
+    </ol>
+</div>
