@@ -1,0 +1,19 @@
+<div class="todolist">
+    <input type="text" class="form-input" name="" id="" [(ngModel)]="history" (keyup)="doAdd($event)">
+
+
+    <h2>未做事件</h2>
+    <ul>
+        <li *ngFor="let item of historyList;let key = index;" [hidden]="item.status==1">
+            <input type="checkbox"  (click)="finish(key)" [(ngModel)]="item.status">
+            {{item.title}}
+            <button (click)="delete(key)">delete</button>
+        </li>
+    </ul>
+    <h2>已完成事件</h2>
+    <ul>
+        <li *ngFor="let item of historyList;let key = index;" [hidden]="item.status==0">
+            {{item.title}}
+        </li>
+    </ul>
+</div>

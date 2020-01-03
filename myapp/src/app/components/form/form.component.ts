@@ -11,7 +11,7 @@ export class FormComponent implements OnInit {
 
   public peopleInfo:any = {
     username:'',
-    sex:'1',
+    sex:'2',
     citylist:['北京','上海','郑州','深圳'],
     city:'北京',
     hobby:[
