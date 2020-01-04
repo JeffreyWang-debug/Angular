@@ -5,7 +5,7 @@
     <h2>未做事件</h2>
     <ul>
         <li *ngFor="let item of historyList;let key = index;" [hidden]="item.status==1">
-            <input type="checkbox"  (click)="finish(key)" [(ngModel)]="item.status">
+            <input type="checkbox"  (click)="finish(key)" [(ngModel)]="item.status" (change)="checkboxchange()">
             {{item.title}}
             <button (click)="delete(key)">delete</button>
         </li>
@@ -13,6 +13,7 @@
     <h2>已完成事件</h2>
     <ul>
         <li *ngFor="let item of historyList;let key = index;" [hidden]="item.status==0">
+            <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxchange()">
             {{item.title}}
         </li>
     </ul>

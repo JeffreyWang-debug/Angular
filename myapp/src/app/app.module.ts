@@ -17,6 +17,9 @@ import { FormComponent } from './components/form/form.component';
 import { SearchComponent } from './components/search/search.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
 
+// 引入并配置service
+import { StorageService} from './services/storage.service'
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,7 @@ import { TodolistComponent } from './components/todolist/todolist.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

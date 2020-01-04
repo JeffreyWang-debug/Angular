@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StorageService } from '../../services/storage.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
@@ -10,9 +11,17 @@ export class TodolistComponent implements OnInit {
   public history:string;
   public historyList:any[]=[];
   public historyList1:any[]=[];
-  constructor() { }
+  constructor( public storage:StorageService) { 
+    // console.warn('todolist'+storage.get());
+  }
 
   ngOnInit() {
+    console.log("todolist,页面刷新会触发这个生命周期函数");
+
+    var dolist=this.storage.get('dolist');
+    if(dolist){
+      this.historyList=dolist;
+    }
   }
 
   doAdd(e){
@@ -22,6 +31,7 @@ export class TodolistComponent implements OnInit {
         title: this.history, 
         status : 0
       });
+      this.storage.set('dolist',this.historyList);
     this.history='';
   }
   }else{
@@ -36,6 +46,7 @@ delete(key){
     // this.historyList[key].status=1;
     // this.historyList1.push(this.historyList[key])
     // this.historyList.splice(key,1);
+      this.storage.set('dolist',this.historyList);
 
   }
   finish(key){
@@ -61,5 +72,12 @@ delete(key){
     }
 
     return false;
+  }
+
+  checkboxchange(){
+    console.log('出发缓存事件');
+    
+    this.storage.set('dolist',this.historyList);
+
   }
 }
