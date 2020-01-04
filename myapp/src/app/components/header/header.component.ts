@@ -11,5 +11,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  run(){
+    console.log('我是子组件里面的run方法')
+  }
 
 }

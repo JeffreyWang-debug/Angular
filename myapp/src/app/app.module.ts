@@ -20,6 +20,9 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 // 引入并配置service
 import { StorageService} from './services/storage.service'
 import { from } from 'rxjs';
+import { DomhomeComponent } from './components/domhome/domhome.component';
+import { ViewchilddomComponent } from './components/viewchilddom/viewchilddom.component';
+import { TransitionComponent } from './components/transition/transition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,10 @@ import { from } from 'rxjs';
     HeaderComponent,
     FormComponent,
     SearchComponent,
-    TodolistComponent
+    TodolistComponent,
+    DomhomeComponent,
+    ViewchilddomComponent,
+    TransitionComponent
   ],
   imports: [
     BrowserModule,
