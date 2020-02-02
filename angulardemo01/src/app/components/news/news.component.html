@@ -1,3 +1,6 @@
 
-<app-header></app-header>
+<!-- <app-footer #footer></app-footer> -->
+<app-footer (outer)="runParent($event)"></app-footer>
 <h2>{{title}}</h2>
+<button (click)="getSonRun()">获取子组件的方法</button>
+<button (click)="run()">Output获取子组件的方法</button>
